@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "active_support/concern"
+require 'active_support/concern'
 
 module Decidim
   module ExtraUserFields
@@ -11,23 +11,20 @@ module Decidim
       included do
         include ::Decidim::ExtraUserFields::ApplicationHelper
 
-        attribute :country, String
-        attribute :postal_code, String
-        attribute :date_of_birth, Decidim::Attributes::LocalizedDate
+        attribute :area, String
+        attribute :age_group, String
         attribute :gender, String
 
-        validates :country, presence: true
-        validates :postal_code, presence: true
-        validates :date_of_birth, presence: true
+        validates :area, presence: true
+        validates :age_group, presence: true
         validates :gender, presence: true
       end
 
       def map_model(model)
         extended_data = model.extended_data.with_indifferent_access
 
-        self.country = extended_data[:country]
-        self.postal_code = extended_data[:postal_code]
-        self.date_of_birth = Date.parse(extended_data[:date_of_birth]) if extended_data[:date_of_birth].present?
+        self.area = extended_data[:area]
+        self.age_group = extended_data[:age_group]
         self.gender = extended_data[:gender]
       end
     end

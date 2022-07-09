@@ -1,4 +1,3 @@
-<%= f.date_field :date_of_birth %>
+<%= f.collection_select :age_group, f.object.age_group_options_for_select, :to_s, :to_s %>
 <%= f.collection_select :gender, f.object.gender_options_for_select, :first, :last %>
-<%= f.custom_country_select :country %>
-<%= f.text_field :postal_code %>
+<%= f.collection_select :area, f.object.area_options_for_select, :to_s, :to_s %>

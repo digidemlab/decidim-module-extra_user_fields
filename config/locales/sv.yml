@@ -1,11 +1,11 @@
 ---
-en:
+sv:
   activemodel:
     attributes:
       user:
-        area: Area
-        age_group: Age
-        gender: Gender
+        area: Område
+        age_group: Ålder
+        gender: Kön
   decidim:
     components:
       extra_user_fields:
@@ -13,9 +13,9 @@ en:
     extra_user_fields:
       admin:
         exports:
-          users: Participants
+          users: Deltagare
       genders:
-        female: Woman
+        female: Kvinna
         male: Man
-        other: Other
-        no_answer: Prefer not to say
+        other: Annat
+        no_answer: Vill inte svara

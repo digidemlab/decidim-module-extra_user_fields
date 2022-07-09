@@ -42,10 +42,9 @@ module Decidim
 
       def extended_data
         @extended_data ||= (@user&.extended_data || {}).merge(
-          country: form.country,
-          postal_code: form.postal_code,
-          date_of_birth: form.date_of_birth,
-          gender: form.gender
+          area: @form.area,
+          age_group: @form.age_group,
+          gender: @form.gender
         )
       end
     end

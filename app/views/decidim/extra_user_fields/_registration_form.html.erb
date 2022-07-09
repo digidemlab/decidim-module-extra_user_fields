@@ -1,5 +1,5 @@
 <div class="field">
-    <%= f.date_field :date_of_birth %>
+    <%= f.collection_select :age_group, f.object.age_group_options_for_select, :to_s, :to_s %>
 </div>
 
 <div class="field">
@@ -7,9 +7,5 @@
 </div>
 
 <div class="field">
-  <%= f.custom_country_select :country %>
-</div>
-
-<div class="field">
-  <%= f.text_field :postal_code %>
+  <%= f.collection_select :area, f.object.area_options_for_select, :to_s, :to_s %>
 </div>
