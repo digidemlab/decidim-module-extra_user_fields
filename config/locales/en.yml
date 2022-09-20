@@ -3,7 +3,7 @@ en:
   activemodel:
     attributes:
       user:
-        area: Area
+        area: Do you live in Kirseberg?
         age_group: Age
         gender: Gender
   decidim:

@@ -11,9 +11,8 @@ module Decidim
       isolate_namespace Decidim::ExtraUserFields
 
       DEFAULT_GENDER_OPTIONS = %i[male female other no_answer].freeze
-      DEFAULT_AREA_OPTIONS = ['Bergsgårdsgärdet', 'Bondegärdet', 'Hjällbo lillgata', 'Sandspåret', 'Skolspåret',
-                              'Någon annanstans'].freeze
-      DEFAULT_AGE_GROUP_OPTIONS = ['0-17', '18-35', '35-65', '66+'].freeze
+      DEFAULT_AREA_OPTIONS = %w[Ja Nej].freeze
+      DEFAULT_AGE_GROUP_OPTIONS = ['0-12', '12-17', '18-25', '26-35', '36-45', '46-55', '56+'].freeze
 
       routes do
         # Add engine routes here

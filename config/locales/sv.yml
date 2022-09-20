@@ -3,7 +3,7 @@ sv:
   activemodel:
     attributes:
       user:
-        area: Område
+        area: Bor du på Kirseberg?
         age_group: Ålder
         gender: Kön
   decidim:
