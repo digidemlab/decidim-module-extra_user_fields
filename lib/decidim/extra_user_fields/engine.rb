@@ -2,7 +2,6 @@
 
 require "rails"
 require "decidim/core"
-require "country_select"
 require "deface"
 
 module Decidim
@@ -11,7 +10,9 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::ExtraUserFields
 
-      DEFAULT_GENDER_OPTIONS = [:male, :female, :other].freeze
+      DEFAULT_GENDER_OPTIONS = [:male, :female, :other, :no_answer].freeze
+      DEFAULT_AREA_OPTIONS = %w(Ja Nej).freeze
+      DEFAULT_AGE_GROUP_OPTIONS = ["0-17", "18-35", "36-65", "66+"].freeze
 
       routes do
         # Add engine routes here
@@ -47,10 +48,6 @@ module Decidim
 
           Decidim::Organization.class_eval do
             prepend ExtraUserFields::OrganizationOverrides
-          end
-
-          Decidim::FormBuilder.class_eval do
-            include ExtraUserFields::FormBuilderMethods
           end
 
           Decidim::FormBuilder.class_eval do

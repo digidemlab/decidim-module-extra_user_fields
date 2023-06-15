@@ -1,18 +1,15 @@
-<% if current_organization.activated_extra_field?(:date_of_birth) %>
-  <%= f.date_field :date_of_birth %>
+<% if current_organization.activated_extra_field?(:age_group) %>
+  <%= f.collection_select :age_group, f.object.age_group_options_for_select, :to_s, :to_s %>
 <% end %>
 <% if current_organization.activated_extra_field?(:gender) %>
   <%= f.collection_select :gender, f.object.gender_options_for_select, :first, :last %>
 <% end %>
 
-<% if current_organization.activated_extra_field?(:country) %>
-  <%= f.custom_country_select :country %>
-<% end %>
-
-<% if current_organization.activated_extra_field?(:postal_code) %>
-  <%= f.text_field :postal_code %>
+<% if current_organization.activated_extra_field?(:area) %>
+  <%= f.text_field :area %>
 <% end %>
 
 <%# Block ExtraUserFields AccountFormFields %>
 
 <%# EndBlock %>
+

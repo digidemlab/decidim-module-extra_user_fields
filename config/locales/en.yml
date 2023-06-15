@@ -3,10 +3,9 @@ en:
   activemodel:
     attributes:
       user:
-        country: Country
-        date_of_birth: Date of birth
+        area: On which street do you live?
+        age_group: Age
         gender: Gender
-        postal_code: Postal code
   decidim:
     admin:
       extra_user_fields:
@@ -54,6 +53,7 @@ en:
         exports:
           users: Participants
       genders:
-        female: Female
-        male: Male
+        female: Woman
+        male: Man
         other: Other
+        no_answer: Prefer not to say

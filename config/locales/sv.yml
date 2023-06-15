@@ -1,0 +1,21 @@
+---
+sv:
+  activemodel:
+    attributes:
+      user:
+        area: På vilken gata bor du?
+        age_group: Ålder
+        gender: Kön
+  decidim:
+    components:
+      extra_user_fields:
+        name: ExtraUserFields
+    extra_user_fields:
+      admin:
+        exports:
+          users: Deltagare
+      genders:
+        female: Kvinna
+        male: Man
+        other: Annat
+        no_answer: Vill inte svara

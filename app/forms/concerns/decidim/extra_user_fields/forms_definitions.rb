@@ -11,18 +11,16 @@ module Decidim
       included do
         include ::Decidim::ExtraUserFields::ApplicationHelper
 
-        attribute :country, String
-        attribute :postal_code, String
-        attribute :date_of_birth, Decidim::Attributes::LocalizedDate
+        attribute :area, String
+        attribute :age_group, String
         attribute :gender, String
 
         # Block ExtraUserFields Attributes
 
         # EndBlock
 
-        validates :country, presence: true, if: :country?
-        validates :postal_code, presence: true, if: :postal_code?
-        validates :date_of_birth, presence: true, if: :date_of_birth?
+        validates :area, presence: true, if: :area?
+        validates :age_group, presence: true, if: :age_group?
         validates :gender, presence: true, inclusion: { in: Decidim::ExtraUserFields::Engine::DEFAULT_GENDER_OPTIONS.map(&:to_s) }, if: :gender?
 
         # Block ExtraUserFields Validations
@@ -33,9 +31,8 @@ module Decidim
       def map_model(model)
         extended_data = model.extended_data.with_indifferent_access
 
-        self.country = extended_data[:country]
-        self.postal_code = extended_data[:postal_code]
-        self.date_of_birth = Date.parse(extended_data[:date_of_birth]) if extended_data[:date_of_birth].present?
+        self.area = extended_data[:area]
+        self.age_group = extended_data[:age_group]
         self.gender = extended_data[:gender]
 
         # Block ExtraUserFields MapModel
@@ -45,20 +42,16 @@ module Decidim
 
       private
 
-      def country?
-        extra_user_fields_enabled && current_organization.activated_extra_field?(:country)
+      def area?
+        extra_user_fields_enabled && current_organization.activated_extra_field?(:area)
       end
 
-      def date_of_birth?
-        extra_user_fields_enabled && current_organization.activated_extra_field?(:date_of_birth)
+      def age_group?
+        extra_user_fields_enabled && current_organization.activated_extra_field?(:age_group)
       end
 
       def gender?
         extra_user_fields_enabled && current_organization.activated_extra_field?(:gender)
-      end
-
-      def postal_code?
-        extra_user_fields_enabled && current_organization.activated_extra_field?(:postal_code)
       end
 
       # Block ExtraUserFields EnableFieldMethod

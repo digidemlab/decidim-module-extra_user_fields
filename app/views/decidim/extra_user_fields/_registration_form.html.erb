@@ -7,8 +7,8 @@
 
       <% if current_organization.activated_extra_field?(:date_of_birth) %>
         <div class="field">
-          <%= f.date_field :date_of_birth %>
-        </div>
+          <%= f.collection_select :age_group, f.object.age_group_options_for_select, :to_s, :to_s %>
+      </div>
       <% end %>
 
       <% if current_organization.activated_extra_field?(:gender) %>
@@ -19,13 +19,7 @@
 
       <% if current_organization.activated_extra_field?(:country) %>
         <div class="field">
-          <%= f.custom_country_select :country %>
-        </div>
-      <% end %>
-
-      <% if current_organization.activated_extra_field?(:postal_code) %>
-        <div class="field">
-          <%= f.text_field :postal_code %>
+          <%= f.collection_select :area, f.object.area_options_for_select, :to_s, :to_s %>
         </div>
       <% end %>
 

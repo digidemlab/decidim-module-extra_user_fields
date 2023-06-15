@@ -22,9 +22,8 @@ module Decidim
       def extra_fields
         [
           :gender,
-          :country,
-          :postal_code,
-          :date_of_birth,
+          :area,
+          :age_group,
           # Block ExtraUserFields AddExtraField
 
           # EndBlock

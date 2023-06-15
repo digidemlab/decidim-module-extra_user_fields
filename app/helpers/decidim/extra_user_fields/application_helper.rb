@@ -7,8 +7,16 @@ module Decidim
     module ApplicationHelper
       def gender_options_for_select
         Decidim::ExtraUserFields::Engine::DEFAULT_GENDER_OPTIONS.map do |gender|
-          [gender, I18n.t(gender, scope: "decidim.extra_user_fields.genders")]
+          [gender, I18n.t(gender, scope: 'decidim.extra_user_fields.genders')]
         end
+      end
+
+      def area_options_for_select
+        Decidim::ExtraUserFields::Engine::DEFAULT_AREA_OPTIONS
+      end
+
+      def age_group_options_for_select
+        Decidim::ExtraUserFields::Engine::DEFAULT_AGE_GROUP_OPTIONS
       end
     end
   end
